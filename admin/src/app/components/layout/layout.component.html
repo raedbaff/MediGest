@@ -1,0 +1,345 @@
+<section id="main-content" class=" ">
+    <div class="wrapper main-wrapper row" >
+
+        <div class='col-xs-12'>
+            <div class="page-title">
+
+                <div class="pull-left">
+                    <!-- PAGE HEADING TAG - START -->
+                    <h1 class="title">Dashboard</h1>
+                    <!-- PAGE HEADING TAG - END -->
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <section class="box nobox marginBottom0">
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12 col-xs-12">
+                            <div class="box">
+                                <div class="hos-promo">
+                                    <div class="promo-info">
+                                        <h3 class="w-text bold">Get full free <br> medical Check up!</h3>
+                                        <h4 class="g-text bold">29 Nov .... 20:00 PM</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="r4_counter db_box">
+                                <i class="pull-left ico-icon icon-md icon-primary mt-10">
+                                    <img src="assets/icons/patient-icon-medical-healthcare-person-260nw-554073769.webp" width="50px" height="50px" class="ico-icon-o" alt="">
+                                </i>
+                                <div class="stats">
+                                    <h3 class="mb-5">{{numberofpatients}} Patients</h3>
+                                    <span>Total Number Of Patients </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="r4_counter db_box">
+                                <i class="pull-left ico-icon icon-md icon-primary mt-10">
+                                    <img src="assets/icons/hos-icon-so2.png" class="ico-icon-o" alt="">
+                                </i>
+                                <div class="stats">
+                                    <h3 class="mb-5">{{numberofdocs}} Doctors</h3>
+                                    <span>Available Doctors</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="r4_counter db_box">
+                                <i class="pull-left ico-icon icon-md icon-primary mt-10">
+                                    <img src="assets/icons/hos-icon-so3.png" class="ico-icon-o" alt="">
+                                </i>
+                                <div class="stats">
+                                    <h3 class="mb-5">{{numberofbills}} Bills</h3>
+                                    <span>Total number of bills</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="r4_counter db_box">
+                                <i class="pull-left ico-icon icon-md icon-primary mt-10">
+                                    <img src="assets/icons/45952.png" height="50px" width="50px" class="ico-icon-o" alt="">
+                                </i>
+                                <div class="stats">
+                                    <h3 class="mb-5">{{numberofdomains}} Specialities</h3>
+                                    <span>Total number of specialities</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- End .row -->
+                </div>
+            </section>
+        </div>
+
+        <div class="clearfix"></div>
+        <!-- MAIN CONTENT AREA STARTS -->
+        <section class="statistics-section">
+            <h3 class="statistics-title">Statistics</h3>
+            <div class="chart-container">
+              <canvas id="myChart"></canvas>
+            </div>
+          </section>
+          
+        
+
+        <div class="col-lg-8">
+            <section class="box" style="overflow:hidden">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Hospital Visits Statistics</h2>
+                    <div class="actions panel_actions pull-right">
+                        
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <ul class="project-activity list-unstyled mb-0">
+                                <li class="activity-list warning">
+                                    <div class="detail-info" *ngFor="let rv of rendezvous">
+                                        <div class="doc-img-con pull-left mr-10">
+                                            <img src="http://127.0.0.1:8088/api/auth/Doctor/files/{{rv.doctor.photo}}" width="80" alt="">
+                                        </div>
+                                        <div class="visit-doc">
+                                            <p class="message">
+                                                <span class="text-info bold">Dr : </span> {{rv.doctor.username}}
+                                            </p>
+                                            <small class="text-muted" style="font-weight: bold;">
+                                                {{rv.appointmentReason}}
+                                            </small>
+                                            <br>
+                                            <div style="margin-left: 50px;display: inline-block; background-color: #F5F5F5; padding: 5px 10px; border-radius: 5px; border: 1px solid black;">
+                                                <span style="color: blue; font-weight: bold; font-family: cursive; letter-spacing: 2px;">{{rv.patientName.username}}</span>
+                                              </div>
+                                              
+                                              
+                                        </div>
+                                        <div class="visit-date pull-right">
+                                            <p class="mb-0">{{rv.formattedDate}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- <li class="clearfix"></li>
+                                <li class="activity-list info">
+                                    <div class="detail-info">
+                                        <div class="doc-img-con pull-left mr-10">
+                                            <img src="assets/hos-dash/doc2.jpg" width="80" alt="">
+                                        </div>
+                                        <div class="visit-doc">
+                                            <p class="message ">
+                                                <span class="text-info bold">Dr : </span> Smith Watson
+                                            </p>
+                                            <small class="text-muted">
+                                                Thryoid Test
+                                            </small>
+                                        </div>
+                                        <div class="visit-date pull-right">
+                                            <p class="mb-0">25 Nov</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="activity-list success">
+                                    <div class="detail-info">
+                                        <div class="doc-img-con pull-left mr-10">
+                                            <img src="assets/hos-dash/doc3.jpg" width="80" alt="">
+                                        </div>
+                                        <div class="visit-doc">
+                                            <p class="message ">
+                                                <span class="text-info bold">Dr : </span> Sarah Mutten
+                                            </p>
+                                            <small class="text-muted">
+                                                Full Blood image
+                                            </small>
+                                        </div>
+                                        <div class="visit-date pull-right">
+                                            <p class="mb-0">25 Nov</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="activity-list danger">
+                                    <div class="detail-info pb0">
+                                        <div class="doc-img-con pull-left mr-10">
+                                            <img src="assets/hos-dash/doc1.jpg" width="80" alt="">
+                                        </div>
+                                        <div class="visit-doc">
+                                            <p class="message ">
+                                                <span class="text-info bold">Dr : </span> Morese Sharpe
+                                            </p>
+                                            <small class="text-muted">
+                                                Full Body Test
+                                            </small>
+                                        </div>
+                                        <div class="visit-date pull-right">
+                                            <p class="mb-0">25 Nov</p>
+                                        </div>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>      
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-lg-4">
+            <section class="box ">
+                <div class="content-body p">
+                    <div class="row">
+                        <div class="doctors-list relative">
+                            <div class="doctors-head text-center">
+                                <h3 class="header w-text relative bold">Doctors List</h3>
+                                <p class="desc g-text relative">Here are our available doctors.</p>
+                            </div>
+                            
+                            <div class="doctor-card has-shadow" *ngFor="let doctor of datalist ">
+                                <div class="doc-info-wrap">
+                                    <div class="doctor-img">
+                                        <img *ngIf="doctor.photo" src="http://127.0.0.1:8088/api/auth/Doctor/files/{{doctor.photo}}" width="100px" height="100px" alt="">
+                                        <img *ngIf="!doctor.photo" src="assets/images/360_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg" width="50px" height="50px" alt="">
+                                    </div>
+                                    <div class="doc-info">
+                                        <h4 class="bold">{{doctor.username}}</h4>
+                                        <h5>{{doctor.domainMedical.name}} Doctor</h5>
+                                        <div class="doc-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <span>4.8</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                
+
+                            <div class="form-group no-mb">
+                                <button type="button" class="btn btn-primary btn-lg mt-20 gradient-blue" routerLink="/home/AllDoctors" style="width:100%"> View all doctors</button>
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
+        </div>
+
+       
+
+    <div class="clearfix"></div>
+
+    <div class="col-lg-8">
+        <section class="box rounded-lg shadow-lg">
+            <header class="panel_header bg-gradient-to-r from-red-500 to-red-600 rounded-t-lg">
+              <h2 class="title text-white font-bold">Patient Notes</h2>
+              <div class="actions panel_actions">
+                <a class="box_toggle text-white"><i class="fas fa-chevron-down"></i></a>
+                <a class="box_setting text-white"><i class="fas fa-cog"></i></a>
+                <a class="box_close text-white"><i class="fas fa-times"></i></a>
+              </div>
+            </header>
+            <div class="content-body p-4" *ngIf="ratings">    
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="list-group">
+                    <div class="list-group-item" *ngFor="let rate of ratings.slice(0,4)">
+                      <div class="d-flex justify-content-between">
+                        <h5 class="font-bold" style="font-size: large;font-weight: bold;text-align: center;">{{rate.doctor.username}}</h5>
+                        <div class="stars" style="margin-left:300px">
+                          <ng-container *ngFor="let i of [].constructor(rate.rating); let j = index;">
+                            <i class="fas fa-star text-yellow-500" style="color:orange"></i>
+                          </ng-container>
+                          <ng-container *ngFor="let i of [].constructor(5 - rate.rating); let j = index;">
+                            <i class="far fa-star text-yellow-500"></i>
+                          </ng-container>
+                        </div>
+                      </div>
+                      <div style="margin-top: 20px;">
+                        <p class="text-gray-600"> <span style="font-weight: bold;font-size: large;">Review : </span>{{rate.patientNotes}}</p>
+                      <small class="text-gray-500" style="font-weight: bold;"> <span style="font-size: large;font-weight: bold;">BY : </span>{{rate.patient.username}}</small>
+                        
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- End .row -->
+            </div>
+          </section>
+          
+        
+        
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-4">
+            <section class="box gradient-blue" style="padding:20px">
+                <div class="doctor-card mb-0">
+                    <div class="doc-info-wrap transparent mb-30" style="padding:0px">
+                        <div class="review-icon">
+                            <img src="assets/hos-dash/smile.png" alt="">
+                        </div>
+                        <div class="doc-info">
+                            <h4 class="w-text bold">Positive Reviews</h4>
+                            <h5 class="bold g-text">{{numberofpositivereviews}} Reviews</h5>
+                            <div class="doc-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <span class="w-text">{{averageofpositive}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress mb-0">
+                        <div class="progress-bar progress-bar-success text-left" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 76%">constructive reviews</div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="box gradient-pink" style="padding:20px">
+                <div class="doctor-card mb-0">
+                    <div class="doc-info-wrap transparent mb-30" style="padding:0px">
+                        <div class="review-icon">
+                            <img src="assets/hos-dash/sad.png" alt="">
+                        </div>
+                        <div class="doc-info">
+                            <h4 class="w-text bold">Negative Reviews</h4>
+                            <h5 class="bold g-text">{{numberofnegativereviews}} Reviews</h5>
+                            <div class="doc-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star g-text"></i>
+                                <i class="fa fa-star g-text"></i>
+                                <i class="fa fa-star g-text"></i>
+                                <span class="w-text ">{{averageofnegative}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress mb-0">
+                        <div class="progress-bar progress-bar-success text-left" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 24%">Unhappy</div>
+                    </div>
+                </div>
+            </section>
+
+            
+
+        </div>
+
+        
+        
+
+    
+        <div class="clearfix"></div>
+
+        <!-- MAIN CONTENT AREA ENDS -->
+    </div>
+</section>
